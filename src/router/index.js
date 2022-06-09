@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import CategoriesView from "@/views/categories/CategoriesView";
+import ArticlesView from "@/views/articles/ArticlesView";
 
 Vue.use(VueRouter)
 
@@ -11,12 +12,49 @@ const routes = [
     component: CategoriesView
   },
   {
-    path: '/about',
-    name: 'about',
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
-    //component: () => import(/* webpackChunkName: "about" */ '../views/AboutView.vue')
+    path: '/categories/add',
+    name: 'Add Category',
+    component: () => import(/* webpackChunkName: "about" */ '../views/categories/AddCategoryView.vue')
+  },
+  {
+    path: '/categories/edit',
+    name: 'Edit Category',
+    component: () => import(/* webpackChunkName: "about" */ '../views/categories/EditCategoryView.vue')
+  },
+  {
+    path: '/articles',
+    name: 'Articles',
+    component: ArticlesView
+  },
+  {
+    path: '/articles/add',
+    name: 'Add Article',
+    component: () => import(/* webpackChunkName: "about" */ '../views/articles/AddArticleView.vue')
+  },
+  {
+    path: '/articles/edit',
+    name: 'Edit Article',
+    component: () => import(/* webpackChunkName: "about" */ '../views/articles/AddArticleView.vue')
+  },
+  {
+    path: '/users',
+    name: 'Users',
+    component: () => import(/* webpackChunkName: "about" */ '../views/users/UsersView.vue')
+  },
+  {
+    path: '/users/add',
+    name: 'Add User',
+    component: () => import(/* webpackChunkName: "about" */ '../views/users/AddUserView.vue')
+  },
+  {
+    path: '/users/edit',
+    name: 'Edit User',
+    component: () => import(/* webpackChunkName: "about" */ '../views/users/EditUserView.vue')
+  },
+  {
+    path: '/login',
+    name: 'Login',
+    component: () => import(/* webpackChunkName: "about" */ '../views/LoginView.vue')
   }
 ]
 

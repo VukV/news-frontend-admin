@@ -10,7 +10,12 @@
           <li class="nav-item">
             <router-link to="/categories" tag="a" class="nav-link">Categories</router-link>
           </li>
-
+          <li class="nav-item">
+            <router-link to="/articles" tag="a" class="nav-link">Articles</router-link>
+          </li>
+          <li class="nav-item">
+            <router-link to="/users" tag="a" class="nav-link">Users</router-link>
+          </li>
         </ul>
       </div>
     </div>

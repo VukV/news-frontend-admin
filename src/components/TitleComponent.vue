@@ -2,7 +2,7 @@
   <div class="container">
     <div id="title-div">
       <h2>{{ title }}</h2>
-      <h5>{{ description }}</h5>
+      <h5 v-if="description">{{ description }}</h5>
     </div>
   </div>
 

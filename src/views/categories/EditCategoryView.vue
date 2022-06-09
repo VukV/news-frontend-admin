@@ -1,12 +1,14 @@
 <template>
   <div>
-
+    <TitleComponent title="Edit Category"></TitleComponent>
   </div>
 </template>
 
 <script>
+import TitleComponent from "@/components/TitleComponent";
 export default {
-  name: "EditCategoryView"
+  name: "EditCategoryView",
+  components: {TitleComponent}
 }
 </script>
 
