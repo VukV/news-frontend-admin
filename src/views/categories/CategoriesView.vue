@@ -5,7 +5,7 @@
     <button type="button" class="btn btn-primary" @click="openAddCategoryView">Add New Category</button>
 
     <div v-if="categories.length !== 0">
-      <div class="row">
+      <div class="row justify-content-center">
         <div class="col-4">
           <table class="table">
             <thead>
@@ -18,10 +18,10 @@
             </thead>
             <tbody>
             <tr v-for="category in categories" :key="category.id">
-              <td @click="openArticlesView(category.id)">{{ category.name }}</td>
+              <td @click="openArticlesView(category.id)" class="category-name">{{ category.name }}</td>
               <td>{{ category.description }}</td>
-              <td> <button type="button" class="btn btn-primary" @click="openEditView(category.id)">Edit</button> </td>
-              <td> <button type="button" class="btn btn-danger" @click="deleteCategory(category.id)">Delete</button> </td>
+              <td> <button type="button" class="btn btn-outline-primary" @click="openEditView(category.id, category.name, category.description)">Edit</button> </td>
+              <td> <button type="button" class="btn btn-outline-danger" @click="deleteCategory(category.id)">Delete</button> </td>
             </tr>
             </tbody>
           </table>
@@ -34,8 +34,8 @@
 
     <div>
       <span>
-        <button type="button" class="btn btn-outline-primary fw-bold" @click="pageBefore">&lt;&lt;</button>
-        <button type="button" class="btn btn-outline-primary fw-bold" @click="pageAfter">&gt;&gt;</button>
+        <button type="button" class="btn btn-outline-primary fw-bold bop" @click="pageBefore">&lt;&lt;</button>
+        <button type="button" class="btn btn-outline-primary fw-bold bop" @click="pageAfter">&gt;&gt;</button>
       </span>
     </div>
 
@@ -59,24 +59,24 @@ export default {
       page: 1
     }
   },
-  created() {
+  mounted() {
     this.getCategories();
   },
   methods:{
     getCategories(){
-      this.$axios.get('/api/categories/content', {params: {page: this.page}})
-          .then(response => {
-            this.categories = response.data;
-          });
+      this.$axios.get('/api/categories/content', {params: {page: this.page}
+      })
+      .then(response => {
+        this.categories = response.data;
+      });
     },
 
     openArticlesView(categoryId){
-      console.log(categoryId);
-      //todo
+      router.push({name: 'Articles', query: {category: categoryId}})
     },
 
-    openEditView(categoryId){
-      router.push({name: 'Edit Category', params: {id: categoryId}});
+    openEditView(categoryId, name, desc){
+      router.push({name: 'Edit Category', params: {id: categoryId}, query: {n: name, d: desc}});
     },
 
     deleteCategory(categoryId){
@@ -112,8 +112,17 @@ export default {
 
 <style scoped>
 
-  .btn-outline-primary{
+  .bop{
     margin: 10px;
+  }
+
+  .category-name{
+    color: blue;
+    font-weight: bold;
+  }
+
+  .category-name:hover{
+    cursor: pointer;
   }
 
 </style>
