@@ -38,12 +38,17 @@ export default {
       let name = document.getElementById('name').value;
       let description = document.getElementById('description').value;
 
-      this.$axios.post('/api/categories/content', {
-        name: name,
-        description: description
-      }).then(() => {
-        router.push({path: '/categories'})
-      });
+      if(name && description){
+        this.$axios.post('/api/categories/content', {
+          name: name,
+          description: description
+        }).then(() => {
+          router.push({path: '/categories'})
+        });
+      }
+      else {
+       alert("Fields can't be empty");
+      }
     },
 
     cancel(){

@@ -47,13 +47,18 @@ export default {
   },
   methods:{
     saveCategory() {
-      this.$axios.put('/api/categories/content', {
-        id: this.id,
-        name: this.name,
-        description: this.description
-      }).then(() => {
-        router.push({path: '/categories'});
-      });
+      if(this.name && this.description){
+        this.$axios.put('/api/categories/content', {
+          id: this.id,
+          name: this.name,
+          description: this.description
+        }).then(() => {
+          router.push({path: '/categories'});
+        });
+      }
+      else {
+        alert("Fields can't be empty");
+      }
     },
 
     cancel() {
