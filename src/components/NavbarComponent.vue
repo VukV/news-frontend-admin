@@ -17,6 +17,9 @@
             <router-link to="/users" tag="a" class="nav-link">Users</router-link>
           </li>
         </ul>
+        <form v-if="canLogout" class="d-flex" @submit.prevent="logout">
+          <button class="btn btn-outline-dark" type="submit">Logout</button>
+        </form>
       </div>
     </div>
   </nav>
@@ -24,7 +27,18 @@
 
 <script>
 export default {
-  name: "NavbarComponent"
+  name: "NavbarComponent",
+  computed:{
+    canLogout() {
+      return this.$route.name !== 'Login';
+    }
+  },
+  methods:{
+    logout() {
+      localStorage.removeItem('jwt');
+      this.$router.push({name: 'Login'});
+    }
+  }
 }
 </script>
 
