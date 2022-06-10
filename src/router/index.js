@@ -47,7 +47,7 @@ const routes = [
     component: () => import(/* webpackChunkName: "about" */ '../views/users/AddUserView.vue')
   },
   {
-    path: '/users/edit',
+    path: '/users/edit/:id',
     name: 'Edit User',
     component: () => import(/* webpackChunkName: "about" */ '../views/users/EditUserView.vue')
   },
@@ -71,6 +71,15 @@ router.beforeEach((to, from, next) => {
       return;
     }
 
+    if(to.name.includes('User')){
+      let claims = parseJwt(jwt);
+
+      if(claims.type !== 'Admin'){
+        alert("Unauthorized access.")
+        return;
+      }
+    }
+
     const payload = JSON.parse(atob(jwt.split('.')[1]));
     const expDate = new Date(payload.exp * 1000);
     if (expDate < new Date()) {
@@ -81,5 +90,15 @@ router.beforeEach((to, from, next) => {
 
   next();
 });
+
+function parseJwt (token) {
+  let base64Url = token.split('.')[1];
+  let base64 = base64Url.replace(/-/g, '+').replace(/_/g, '/');
+  let jsonPayload = decodeURIComponent(atob(base64).split('').map(function(c) {
+    return '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2);
+  }).join(''));
+
+  return JSON.parse(jsonPayload);
+}
 
 export default router
