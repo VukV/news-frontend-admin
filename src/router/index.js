@@ -17,7 +17,7 @@ const routes = [
     component: () => import(/* webpackChunkName: "about" */ '../views/categories/AddCategoryView.vue')
   },
   {
-    path: '/categories/edit',
+    path: '/categories/edit/:id',
     name: 'Edit Category',
     component: () => import(/* webpackChunkName: "about" */ '../views/categories/EditCategoryView.vue')
   },
