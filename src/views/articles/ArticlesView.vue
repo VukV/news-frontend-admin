@@ -18,7 +18,7 @@
             </thead>
             <tbody>
             <tr v-for="article in articles" :key="article.id">
-              <td @click="openArticleLink" class="article-title">{{ article.title }}</td>
+              <td @click="openArticleLink(article.id)" class="article-title">{{ article.title }}</td>
               <td>{{ article.date | toDate }}</td>
               <td> <button type="button" class="btn btn-outline-primary" @click="openEditView(article.id)">Edit</button> </td>
               <td> <button type="button" class="btn btn-outline-danger" @click="deleteArticle(article.id)">Delete</button> </td>
@@ -111,8 +111,8 @@ export default {
           });
     },
 
-    openArticleLink(){
-      //todo
+    openArticleLink(articleId){
+      window.open('http://localhost:8082/#/single-article/' + articleId, '_blank');
     },
 
     pageBefore(){

@@ -24,7 +24,7 @@
               <td>{{ user.surname }}</td>
               <td>{{ user.email }}</td>
               <td>{{ user.type }}</td>
-              <td> <button type="button" class="btn btn-outline-primary" @click="openEditView(user.id)">Edit</button> </td>
+              <td> <button type="button" class="btn btn-outline-primary" @click="openEditView(user.email)">Edit</button> </td>
               <td v-if="user.type === 'Admin'" class="fw-bold">/</td>
               <td v-else-if="user.active === true"> <button type="button" class="btn btn-outline-danger" @click="changeStatus(user.id, user.active)">Deactivate</button> </td>
               <td v-else> <button type="button" class="btn btn-outline-success" @click="changeStatus(user.id, user.active)">Activate</button> </td>
@@ -109,8 +109,8 @@ export default {
       this.getUsers();
     },
 
-    openEditView(userId){
-      router.push({name: 'Edit User', params: {id: userId}});
+    openEditView(userEmail){
+      router.push({name: 'Edit User', params: {email: userEmail}});
     },
 
 

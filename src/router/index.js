@@ -47,7 +47,7 @@ const routes = [
     component: () => import(/* webpackChunkName: "about" */ '../views/users/AddUserView.vue')
   },
   {
-    path: '/users/edit/:id',
+    path: '/users/edit/:email',
     name: 'Edit User',
     component: () => import(/* webpackChunkName: "about" */ '../views/users/EditUserView.vue')
   },

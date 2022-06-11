@@ -18,6 +18,7 @@
           </li>
         </ul>
         <form v-if="canLogout" class="d-flex" @submit.prevent="logout">
+          <h6 id="user">{{ getName }}</h6>
           <button class="btn btn-outline-dark" type="submit">Logout</button>
         </form>
       </div>
@@ -31,6 +32,16 @@ export default {
   computed:{
     canLogout() {
       return this.$route.name !== 'Login';
+    },
+    getName(){
+      let token = localStorage.getItem("jwt");
+      let base64Url = token.split('.')[1];
+      let base64 = base64Url.replace(/-/g, '+').replace(/_/g, '/');
+      let jsonPayload = decodeURIComponent(atob(base64).split('').map(function(c) {
+        return '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2);
+      }).join(''));
+
+      return JSON.parse(jsonPayload).sub;
     }
   },
   methods:{
@@ -43,5 +54,7 @@ export default {
 </script>
 
 <style scoped>
-
+  #user{
+    margin: auto 10px auto auto;
+  }
 </style>
