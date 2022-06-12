@@ -76,6 +76,9 @@ export default {
           router.go(-1);
         });
       }
+      else {
+        alert("Fields can't be empty");
+      }
     }
   }
 }
