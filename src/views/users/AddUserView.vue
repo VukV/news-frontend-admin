@@ -81,7 +81,10 @@ export default {
             passwordRepeat: passwordConfirm
           }).then(() => {
             router.go(-1);
-          });
+          })
+            .catch(() => {
+              alert("User with given email already exists");
+            });
         }
         else {
           alert("Invalid password");

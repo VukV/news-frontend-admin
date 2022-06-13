@@ -44,7 +44,10 @@ export default {
           description: description
         }).then(() => {
           router.push({path: '/categories'})
-        });
+        })
+          .catch(() => {
+            alert("Category with given name already exists");
+          });
       }
       else {
        alert("Fields can't be empty");
