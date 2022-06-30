@@ -8,9 +8,9 @@ The purpose of the project was to learn HTTP, REST, Vue and backend-frontend int
 
 This Vue app has two types of users: Content Creator and Admin.
 Based on user role, this app is responsible for: 
-*adding/editing/deleting categories (Content Creator and Admin)
-*writing/editing/deleting articles (Content Creator and Admin)
-*user menagement (Admin only)
+* adding/editing/deleting categories (Content Creator and Admin)
+* writing/editing/deleting articles (Content Creator and Admin)
+* user menagement (Admin only)
 
 All parts of this project:
 - [Backend](https://github.com/VukV/news-backend)
