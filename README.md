@@ -1,6 +1,6 @@
 # News 
 
-### Frontent (Admin App)
+### Frontend (Admin App)
 
 This is a part of fullstack web application project for Web Programming course at Faculty of Computing.
 
