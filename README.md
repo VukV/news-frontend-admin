@@ -1,24 +1,18 @@
-# vvukovic9420rn_vue_admin
+# News 
 
-## Project setup
-```
-npm install
-```
+### Frontent (Admin App)
 
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
+This is a part of fullstack web application project for Web Programming course at Faculty of Computing.
 
-### Compiles and minifies for production
-```
-npm run build
-```
+The purpose of the project was to learn HTTP, REST, Vue and backend-frontend integration.
 
-### Lints and fixes files
-```
-npm run lint
-```
+This Vue app has two types of users: Content Creator and Admin.
+Based on user role, this app is responsible for: 
+*adding/editing/deleting categories (Content Creator and Admin)
+*writing/editing/deleting articles (Content Creator and Admin)
+*user menagement (Admin only)
 
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+All parts of this project:
+- [Backend](https://github.com/VukV/news-backend)
+- [Frontend (User App)](https://github.com/VukV/news-frontend)
+- [Frontend (Admin App)](https://github.com/VukV/news-frontend-admin)
