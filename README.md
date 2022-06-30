@@ -17,3 +17,5 @@ All parts of this project:
 - [Backend](https://github.com/VukV/news-backend)
 - [Frontend (User App)](https://github.com/VukV/news-frontend)
 - [Frontend (Admin App)](https://github.com/VukV/news-frontend-admin)
+
+![App Example](screenshots/screenshots.png?raw=true "Title")
