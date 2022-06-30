@@ -7,6 +7,7 @@ This is a part of fullstack web application project for Web Programming course a
 The purpose of the project was to learn HTTP, REST, Vue and backend-frontend integration.
 
 This Vue app has two types of users: Content Creator and Admin.
+
 Based on user role, this app is responsible for: 
 * adding/editing/deleting categories (Content Creator and Admin)
 * writing/editing/deleting articles (Content Creator and Admin)
